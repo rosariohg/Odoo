@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="convalidaciones.list_alumnos">
+      <field name="name">Listado</field>
+      <field name="model">convalidaciones.alumno</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="edad"/>
+        </tree>
+      </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="convalidaciones.action_window">
+      <field name="name">Ventana de Alumnos</field>
+      <!-- VENTANA ALUMNO QUE SE VA A MOSTRAR--> 
+      <field name="res_model">convalidaciones.alumno</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Top menu item -->
+    
+    <menuitem name="Convalidaciones" id="convalidaciones.menu_root"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Alumnos" id="convalidaciones.alumnos" parent="convalidaciones.menu_root"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="Listado" id="convalidaciones.alumnos_list" parent="convalidaciones.alumnos"
+              action="convalidaciones.action_window"/>
+       
+  </data>
+</odoo>
