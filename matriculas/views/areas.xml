@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="matriculas.list_areas">
+      <field name="name">Listado</field>
+      <field name="model">matriculas.area</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+    
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="matriculas.action_window_areas">
+      <field name="name">Ventana de Áreas</field>
+      <field name="res_model">matriculas.area</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Areas" id="matriculas.areas" parent="matriculas.menu_root"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="Listado" id="matriculas.areas_list" parent="matriculas.areas"
+              action="matriculas.action_window_areas"/>
+       
+  </data>
+</odoo>
