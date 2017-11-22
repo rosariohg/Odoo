@@ -27,6 +27,8 @@
     'data': [
         'views/alumnos.xml',
         'views/areas.xml',
+        'views/cursos.xml',
+        'views/matriculas.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="matriculas.list_matriculas_tree">
+      <field name="name">matriculas.matricula.tree</field>
+      <field name="model">matriculas.matricula</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="anio"/>
+          <field name="periodo"/>
+          <field name="nivel"/>
+          <field name="fecha_matricula"/>
+          <field name="curso_id"/>
+          <field name="alumno_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="matriculas.list_matriculas_form">
+      <field name="name">matriculas.matricula.form</field>
+      <field name="model">matriculas.matricula</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group colspan="2" col="2">
+              <field name="anio"/>
+              <field name="periodo"/>
+              <field name="nivel"/>
+              <field name="fecha_matricula"/>
+              <field name="curso_id"/>
+              <field name="alumno_id"/>
+            </group>            
+          </sheet>          
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="matriculas.action_window_matriculas">
+      <field name="name">Ventana de Matrículas</field>
+      <field name="res_model">matriculas.matricula</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Matrículas" id="matriculas.menu_matriculas" parent="matriculas.menu_root"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="Listado" id="matriculas.matriculas_list" parent="matriculas.menu_matriculas"
+              action="matriculas.action_window_matriculas"/>
+       
+  </data>
+</odoo>

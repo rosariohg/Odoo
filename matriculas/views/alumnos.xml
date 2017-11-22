@@ -2,8 +2,8 @@
   <data>
     <!-- explicit list view definition -->
     
-    <record model="ir.ui.view" id="matriculas.list_alumnos">
-      <field name="name">Listado</field>
+    <record model="ir.ui.view" id="matriculas.list_alumnos_tree">
+      <field name="name">matriculas.alumno.tree</field>
       <field name="model">matriculas.alumno</field>
       <field name="arch" type="xml">
         <tree>
@@ -11,10 +11,39 @@
           <field name="direccion"/>
           <field name="telefono"/>
           <field name="dni"/>
+          <field name='matriculas_ids'>
+            <tree string='Matriculas del alumno'>
+              <field name='anio' />
+              <field name='periodo' />
+              <field name='nivel' />
+              <field name='fecha_matricula' />
+              <field name='alumno_id' />
+            </tree>
+          </field>
         </tree>
       </field>
     </record>
+
+    <record model="ir.ui.view" id="matriculas.list_alumnos_form">
+      <field name="name">matriculas.alumno.form</field>
+      <field name="model">matriculas.alumno</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <separator string="Datos personales" colspan="2" />
+            <group colspan="2" col="2">
+              <field name="name"/>
+              <field name="direccion"/>
+              <field name="telefono"/>
+              <field name="dni"/>
+            </group>
+            <field name='matriculas_ids' />
+          </sheet>          
+        </form>
+      </field>
+    </record>
     
+
 
     <!-- actions opening views on models -->
     

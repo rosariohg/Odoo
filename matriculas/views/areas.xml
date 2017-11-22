@@ -2,8 +2,8 @@
   <data>
     <!-- explicit list view definition -->
     
-    <record model="ir.ui.view" id="matriculas.list_areas">
-      <field name="name">Listado</field>
+    <record model="ir.ui.view" id="matriculas.list_areas_tree">
+      <field name="name">matriculas.area.listado.tree</field>
       <field name="model">matriculas.area</field>
       <field name="arch" type="xml">
         <tree>
@@ -12,7 +12,21 @@
         </tree>
       </field>
     </record>
-    
+
+    <record model="ir.ui.view" id="matriculas.list_areas_form">
+      <field name="name">matriculas.area.listado.form</field>
+      <field name="model">matriculas.area</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group colspan="2" col="2">
+              <field name="name"/>
+              <field name="description"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>   
 
     <!-- actions opening views on models -->
     
