@@ -22,7 +22,7 @@
       <field name="model">matriculas.matricula</field>
       <field name="arch" type="xml">
         <form>
-          <sheet>
+          <sheet>            
             <group colspan="2" col="2">
               <field name="anio"/>
               <field name="periodo"/>
@@ -36,13 +36,98 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="matriculas.list_alumnos_kanban">
+      <field name="name">matriculas.matricula.kanban</field>
+      <field name="model">matriculas.matricula</field>
+      <field name="arch" type="xml">
+        <kanban default_group_by="curso_id" create="false">
+          <field name="color"/>
+          <templates>
+                    <t t-name="kanban-box">
+                        <t t-set="color" t-value="kanban_color(record.color.raw_value || record.name.raw_value)" />
+                        <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                                  oe_kanban_global_click_edit oe_semantic_html_override
+                                                  oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_kanban_box oe_kanban_color_border">
+                                <div class="oe_kanban_box_header oe_kanban_color_bgdark oe_kanban_color_border oe_kanban_draghandle">
+                                    <table class="oe_kanban_table">
+                                        <tr>
+                                            <td class="oe_kanban_title1" align="left" valign="middle" style="padding-left:10px;">
+                                                <h4>
+                                                    <a type="open">
+                                                        <field name="name" />
+                                                    </a>
+                                                </h4>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="oe_kanban_box_content oe_kanban_color_bglight oe_kanban_box_show_onclick_trigger oe_kanban_color_border">
+                                    <table class="oe_kanban_table">
+                                        <tr width="300">                               
+                                            <td valign="top" align="left" style="padding-left:10px;">
+                                                <table>
+                                                    <tr>
+                                                        <td>Alumno :</td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="alumno_id" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Anio :</td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="anio" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Periodo : </td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="periodo" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nivel : </td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="nivel" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Fecha Matrícula : </td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="fecha_matricula" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>                                    
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+        </kanban>
+      </field>
+    </record>
+    
+
 
     <!-- actions opening views on models -->
     
     <record model="ir.actions.act_window" id="matriculas.action_window_matriculas">
       <field name="name">Ventana de Matrículas</field>
       <field name="res_model">matriculas.matricula</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
     
     <!-- menu categories -->

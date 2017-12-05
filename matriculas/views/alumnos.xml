@@ -31,6 +31,7 @@
         <form>
           <sheet>
             <separator string="Datos personales" colspan="2" />
+            <!--<field name="photo" widget="image" class="oe_avatar oe_left" style="max-width:100px;max-height:117px;" />-->
             <group colspan="2" col="2">
               <field name="name"/>
               <field name="direccion"/>
@@ -42,8 +43,6 @@
         </form>
       </field>
     </record>
-    
-
 
     <!-- actions opening views on models -->
     
