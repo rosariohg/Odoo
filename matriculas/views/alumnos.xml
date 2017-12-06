@@ -3,7 +3,7 @@
     <!-- explicit list view definition -->
     
     <record model="ir.ui.view" id="matriculas.list_alumnos_tree">
-      <field name="name">matriculas.alumno.tree</field>
+      <field name="name">matriculas.alumno.listado.tree</field>
       <field name="model">matriculas.alumno</field>
       <field name="arch" type="xml">
         <tree>
@@ -25,7 +25,7 @@
     </record>
 
     <record model="ir.ui.view" id="matriculas.list_alumnos_form">
-      <field name="name">matriculas.alumno.form</field>
+      <field name="name">matriculas.alumno.listado.form</field>
       <field name="model">matriculas.alumno</field>
       <field name="arch" type="xml">
         <form>
@@ -46,7 +46,7 @@
 
     <!-- actions opening views on models -->
     
-    <record model="ir.actions.act_window" id="matriculas.action_window">
+    <record model="ir.actions.act_window" id="matriculas.action_window_alumnos">
       <field name="name">Ventana de Alumnos</field>
       <field name="res_model">matriculas.alumno</field>
       <field name="view_mode">tree,form</field>
@@ -63,7 +63,7 @@
     <!-- actions -->
     
     <menuitem name="Listado" id="matriculas.alumnos_list" parent="matriculas.alumnos"
-              action="matriculas.action_window"/>
+              action="matriculas.action_window_alumnos"/>
        
   </data>
 </odoo>
